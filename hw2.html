@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+            <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="hw2.css" type="text/css" />
+        <title>
+            Steve (from Jerry Springer) Tribute Website
+        </title>
+    </head>
+    <!-- <style>
+    </style> -->
+    <body>
+        
+            <marquee>
+                <h1>
+                    STEVE!!! STEVE!!! STEVE!!! <strike>JERRY! JERRY! JERRY!</strike>
+                </h1>
+            </marquee>
+        <h2 id="steveTitle">
+            Tribute Page for Steve Wilkos AKA Steve from Jerry Springer
+        </h2>
+        <!--directly below, put in button w in div just like on the Demo... -->
+        <div>
+            <button onclick="triviaFunc()" class="centerClass" id="triviaButton">Play Trivia</button>
+        </div>
+        <!--<button onclick="triviaFunc()" class="triviaGame" id="triviaButton">
+            Play Trivia
+        </button>-->
+        <!--directly below, in h3, trying to make it so that the trivia 
+        question will show when the button is clicked... using classHider instead of 
+    classHidden because that is confusing me for some reason...-->
+        <h3 id="triviaContent" class="classHider"></h3>
+        <!--directly below, adding an initially hidden h3 tag wit hthe id of responseResult-->
+        <h3 id="responseResult" class="classHider"></h3>
+        <input class="classHider" id="trivInput" /> <!--added 1219EST 1MAR2019-->
+        <!--directly below, adding innitially hidden input with id trivInput-->
+        <!-- <input id="trivInput" class="classHider" />  //changes along here at this time were the changes
+        that let me see the text and get the first answer correct...-->
+        <!--directly below, making answer button with id enterAnsButton-->
+        <button onclick="enterAnswer()" id="enterAnsButton" class="classHider">Enter Answer</button>
+        <!--creating an initially hidden button with nextQuestionFunc onclick function, id of nextQuest-->
+        <button class="classHider" onclick="nextQuestionFunc()" id="nextQuest">Next Question</button>
+        <!--create an initially hidden button with resetGameFunc onclick function, id of resetGame-->
+        <button class="classHider" onclick="resetGameFunc()" id="rstGame">Reset Game</button>
+        <!--T1CG responded to call for help w above advice...-->
+        <img id="steveReal" src="data:image/jpeg;base64,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" />
+        <iframe id="steveVideo" class="classHider" src="https://www.youtube.com/watch?v=HMMoimwOIJs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+        <button onclick="toggleHidden()" class="centerClass" id="videoButton">
+        Picture Video Toggle
+        </button>
+
+
+
+
+        <h3>
+            <a href="https://en.wikipedia.org/wiki/Steve_Wilkos" target="_blank">
+            Link to Steve Wilkos Wikipedia
+            </a>
+        </h3>
+        
+        
+                <table align="center">
+                        <tr>
+                            <th>
+                                <strong>Film/TV Series</strong>
+                            </th>
+                            <th>
+                                <strong>Year</strong>
+                            </th>
+                            <th>
+                                <strong>Best Media of the Year?</strong>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="https://en.wikipedia.org/wiki/Pauly_Shore_Is_Dead" target="_blank">Pauly Shore Is Dead</a>
+                            </td>
+                            <td>
+                               <h6>2003</h6>
+                            </td>
+                            <td>
+                                YES.
+                            </td>
+                        </tr>
+                        <tr>
+                                <td>
+                                    <a href="https://en.wikipedia.org/wiki/Austin_Powers:_The_Spy_Who_Shagged_Me" target="_blank">Austin Powers: The Spy Who Shagged Me</a>
+                                </td>
+                                <td>
+                                   <h6>1999</h6>
+                                </td>
+                                <td>
+                                    Indubitably!
+                                </td>
+                            </tr>
+                        <tr>
+                            <td>
+                                <a href="https://en.wikipedia.org/wiki/The_Wayans_Bros." target="_blank">The Wayans Bros.</a>
+                            </td>
+                            <td>
+                                <h6>1998</h6>
+                            </td>
+                            <td>
+                                But of Course.
+                            </td>
+                        </tr>
+                        <td>
+                            <a href="https://en.wikipedia.org/wiki/World_Xtreme_Wrestling" target="_blank">World Xtreme Wrestling</a>
+                        </td>
+                        <td>
+                            <h6>2002</h6>
+                        </td>
+                        <td>
+                            You Bet Your Stars and Garters!
+                        </td>
+                    </table>
+    <input class="centerClass" id="titlexInput" placeholder="title"></body></input>
+    <input class="centerClass" id="yearInput" placeholder="year"></input>
+    <button onclick="addRow()" class="centerClass" id="tableButton">Add Movie to Table</button>
+    <button onclick="deleteRowFunc()" class="centerClass" id="tableButton">Delete Last Movie</button>
+    <h5 class="date">Steve Wilkos Online Calendar: <input class="date" type="date"></h5>
+    <h5 class="time">Steve Wilkos Online Clock: <input class="time" type="time"></h5>
+        
+    
+
+        <section class="messageBoard">
+            <div class="titleb">
+                <h2>
+                    Post a Message
+                </h2>
+            </div>
+            <textarea id="messageb" type="text"></textarea><br/>
+            <input value="Submit" onclick="postMessage()" type="button" class="submitButton" />
+            <div id="displayArea">
+              <h3>Messages:</h3>
+              <div class="msgContainerc" id="msgContainerid">
+        
+              </div>
+            </div>
+        </section>
+
+
+
+    <footer id="roots">
+    <p id="contact">Posted by: <a href="mailto:franklin.rivera.bueno@gmail.com">Franklin Bueno</a></p>
+    <p id="contact">Contact Information: <a href="mailto:franklin.rivera.bueno@gmail.com">franklin.rivera.bueno@gmail.com</a></p>
+    </footer>
+    <script src="hw2.js">
+        </script>
+        </body>
+</html>

@@ -1,0 +1,114 @@
+body {
+    background-color: black;
+}
+p {
+    color: gold;
+}
+h1, h2 {
+    color: gold;
+}
+
+h3 {
+    color: white;
+}
+
+h5 {
+    color: white;
+}
+th {
+    text-align: center; 
+    text-decoration: underline;
+}
+td, #trivInput {
+    text-align: center;
+}
+#contact {
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid blue;
+    color: gold;
+}
+#steveTitle {
+    text-align: center;
+    color: blue;
+}
+.date, .time {
+    text-align: center;
+    color: green;
+}
+#steveReal, #steveVideo {
+    height: 300px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+}
+.messageBoard {
+    align-items: center;
+}
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centerClass {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#steveVideo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.classHider {
+    display: none !important;
+
+}
+
+a {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* below is footer style: */
+
+#roots, #contact {
+    color: yellow; 
+    text-decoration: underline;
+}
+
+/*
+
+CLI Commands - Extra Tasks
+
+1. rm -rf [folder name]
+In general, one cannot delete a folder without deleting the contents (i.e., files) in each and every folder. The
+command rm -rf [folder name] deletes everything, including the parent folder. Supposedly, whatever you do,
+never do "rm -rf ./*" because that will erase your hard drive.
+
+2. cat
+The command cat [file name] gives a quick display of a file. For example, let's say that you have a file,
+index.html, and it is a basic html file. If you enter "cat index.html," then after the command, the CLI 
+interface will display everything you typed, including <html> and <html> and everything around/between those
+tags.
+
+3. mv
+The command mv [file name] lets you move a file. Also, it lets you rename a file. Let's say that you have a file
+called joe.css in a specific folder. In that specific folder, if you type "mv joe.css joseph.css," then your file
+should be renamed (i.e., changed) to "joseph.css."
+
+4. history
+The command history reviews every command that you previously entered. If you type 'history' by itself, you 
+should get back a two column table. The column on the left should give a number of some sort. On the 
+right should be the specific command.
+
+extra stuff for second recomming (third total commit)
+*/
